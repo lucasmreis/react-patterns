@@ -14,17 +14,15 @@ const PlanetView = ({ name, climate, terrain }) => (
   </div>
 );
 
-class PlanetBranch extends React.Component {
-  render() {
-    if (this.props.loading) {
-      return <LoadingView />;
-    } else if (this.props.planet) {
-      return <PlanetView {...this.props.planet} />;
-    } else {
-      return <ErrorView />;
-    }
+const PlanetBranch = ({ loading, planet }) => {
+  if (loading) {
+    return <LoadingView />;
+  } else if (planet) {
+    return <PlanetView {...planet} />;
+  } else {
+    return <ErrorView />;
   }
-}
+};
 
 // State:
 // { loading: true }
@@ -49,6 +47,3 @@ class DagobahContainer extends React.Component {
 }
 
 export default DagobahContainer;
-
-// PROS: simple, logic / branching / view separation makes it even easier to test and showcase views
-// CONS: logic dependent on branching, branching dependent on views, not reusable

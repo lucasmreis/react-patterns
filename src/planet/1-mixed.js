@@ -2,7 +2,7 @@ import React from "react";
 
 // VANILLA / MIXED
 
-export default class extends React.Component {
+export default class Dagobah extends React.Component {
   state = { loading: true };
 
   componentDidMount() {
@@ -43,6 +43,3 @@ export default class extends React.Component {
     }
   }
 }
-
-// PROS: easy, self contained
-// CONS: can easily get complex, not easy to test, to showcase in storybook

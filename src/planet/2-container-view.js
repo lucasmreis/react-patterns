@@ -56,6 +56,3 @@ class DagobahContainer extends React.Component {
 }
 
 export default DagobahContainer;
-
-// PROS: simple, logic / view separation makes it easier to test and showcase
-// CONS: logic dependent on view, not reusable

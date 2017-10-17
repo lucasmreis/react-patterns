@@ -52,5 +52,3 @@ export default withDagobah({
   ErrorViewComponent: ErrorView,
   PlanetViewComponent: PlanetView
 });
-
-// more complex hoc to avoid branch component
