@@ -1,19 +1,41 @@
 import React, { Component } from "react";
-import { DagobahProvider, withDagobah, DagobahRp } from "./planets/1-provider";
-import View from "./planets/view";
 
-const DagobahPlanet = withDagobah(View);
+import {
+  DagobahProvider,
+  DagobahPlanet,
+  DagobahContext
+} from "./planets/2-provider-new-context";
+
+import View from "./planets/view";
 
 class App extends Component {
   render() {
     return (
       <DagobahProvider>
+        {/* exported component with consumer */}
         <DagobahPlanet />
         <DagobahPlanet />
         <DagobahPlanet />
-        <DagobahRp render={props => <View {...props} />} />
-        <DagobahRp render={props => <View {...props} />} />
-        <DagobahRp render={props => <View {...props} />} />
+
+        {/* using directly consumer render props */}
+        <DagobahContext.Consumer>
+          {dagobah => <View {...dagobah} />}
+        </DagobahContext.Consumer>
+
+        <DagobahContext.Consumer>
+          {dagobah => <View {...dagobah} />}
+        </DagobahContext.Consumer>
+
+        {/* sharing one consumer with many components */}
+        <DagobahContext.Consumer>
+          {dagobah => (
+            <React.Fragment>
+              <View {...dagobah} />
+              <View {...dagobah} />
+              <View {...dagobah} />
+            </React.Fragment>
+          )}
+        </DagobahContext.Consumer>
       </DagobahProvider>
     );
   }
