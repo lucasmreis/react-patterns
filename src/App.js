@@ -4,9 +4,9 @@ import {
   DagobahProvider,
   DagobahPlanet,
   DagobahContext
-} from "./planets/2-provider-new-context";
+} from "./planets/3-dynamic-provider";
 
-import View from "./planets/view";
+import View from "./planets/view-with-actions";
 
 class App extends Component {
   render() {
