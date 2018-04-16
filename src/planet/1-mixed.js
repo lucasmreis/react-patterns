@@ -1,4 +1,5 @@
 import React from "react";
+import Cookies from "js-cookie";
 
 // VANILLA / MIXED
 
@@ -25,7 +26,7 @@ export default class Dagobah extends React.Component {
   renderPlanet() {
     const { name, climate, terrain } = this.state.planet;
     return (
-      <div>
+      <div data-test="planet">
         <h2>{name}</h2>
         <div>Climate: {climate}</div>
         <div>Terrain: {terrain}</div>
